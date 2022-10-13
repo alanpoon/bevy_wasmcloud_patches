@@ -1,0 +1,59 @@
+[package]
+name = "bevy_internal"
+version = "0.8.1"
+edition = "2021"
+description = "An internal Bevy crate used to facilitate optional dynamic linking via the 'dynamic' feature"
+homepage = "https://bevyengine.org"
+repository = "https://github.com/bevyengine/bevy"
+license = "MIT OR Apache-2.0"
+keywords = ["game", "engine", "gamedev", "graphics", "bevy"]
+categories = ["game-engines", "graphics", "gui", "rendering"]
+
+[features]
+trace = [
+    "bevy_app/trace",
+    "bevy_core_pipeline?/trace",
+    "bevy_ecs/trace",
+    "bevy_log/trace",
+    "bevy_render?/trace",
+    "bevy_hierarchy/trace"
+]
+trace_chrome = [ "bevy_log/tracing-chrome" ]
+trace_tracy = ["bevy_render?/tracing-tracy", "bevy_log/tracing-tracy" ]
+wgpu_trace = ["bevy_render/wgpu_trace"]
+debug_asset_server = ["bevy_asset/debug_asset_server"]
+
+# Enable watching file system for asset hot reload
+filesystem_watcher = ["bevy_asset/filesystem_watcher"]
+
+serialize = ["bevy_input/serialize"]
+
+# Optimise for WebGL2
+webgl = ["bevy_core_pipeline?/webgl", "bevy_render?/webgl"]
+
+# enable systems that allow for automated testing on CI
+bevy_ci_testing = ["bevy_app/bevy_ci_testing", "bevy_render/ci_limits"]
+
+
+[dependencies]
+# bevy
+bevy_app = {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_core = {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_derive= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_ecs= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_hierarchy= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_log= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_math= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_reflect= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1", features = ["bevy"]  }
+bevy_time= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_input= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_transform= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1" }
+bevy_utils= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_window= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+bevy_tasks= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1"  }
+# bevy (optional)
+bevy_asset= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1" ,optional = true  }
+bevy_core_pipeline= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1",optional = true  }
+bevy_render= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1",optional = true  }
+bevy_scene= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1",optional = true  }
+bevy_sprite= {  git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1",optional = true  }

@@ -1,0 +1,19 @@
+[package]
+name = "bevy_time"
+version = "0.8.1"
+edition = "2021"
+description = "Provides time functionality for Bevy Engine"
+homepage = "https://bevyengine.org"
+repository = "https://github.com/bevyengine/bevy"
+license = "MIT OR Apache-2.0"
+keywords = ["bevy"]
+
+
+[dependencies]
+# bevy
+bevy_app = { git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1" }
+bevy_ecs = { git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1" ,features = ["bevy_reflect"] }
+bevy_reflect = { git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1" , features = ["bevy"] }
+bevy_utils = { git="https://github.com/bevyengine/bevy",rev = "b995b4662a9481e8d6fd984b2d2fd02e1c2d1a5d", version = "0.8.1" }
+# other
+crossbeam-channel = "0.5.0"
